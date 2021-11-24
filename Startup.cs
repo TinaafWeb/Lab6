@@ -29,8 +29,18 @@ namespace Lab6
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("DefaultConnection");
+
+
+           
+
+           
+            var connection = Configuration.GetConnectionString("DefaultDBConnection");
             services.AddDbContext<StudentDbContext>(options => options.UseSqlServer(connection));
+
+          //  var blobConnection = Configuration.GetConnectionString("AzureBlobStorage");
+            //services.AddSingleton(new BlobServiceClient(blobConnection));
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
